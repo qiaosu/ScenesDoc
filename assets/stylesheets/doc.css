@@ -1,0 +1,396 @@
+/* 防止用户自定义背景颜色对网页的影响 */
+html{
+	color: #3E3E29;background:#fff;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	margin:0;padding:0;
+}
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+/* 要注意表单元素并不继续父级 font 的问题 */
+body,button,input,select,textarea{
+	font:12px/1.5 "PTSans", "Arial", "Helvetica", \5b8b\4f53;
+}
+input,select,textarea{
+	font-size:100%;
+}
+
+/* 去掉各Table  cell 的边距并让其边重合 */
+table{
+	border-collapse:collapse;border-spacing:0;
+}
+
+/* IE bug fixed: th 不继承 text-align*/
+th{
+	text-align:inherit;
+}
+
+/* 去除默认边框 */
+fieldset,img,a img{
+	border:0;
+}
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe{
+	display:block;
+}
+
+/* 去掉 firefox 下此元素的边框 */
+abbr,acronym{
+	border:0;font-variant:normal;
+}
+
+/* 一致的 del 样式 */
+del {
+	text-decoration:line-through;
+}
+
+address,caption,cite,code,dfn,em,th,var {
+	font-style:normal;
+	font-weight:500;
+}
+
+/* 去掉列表前的标识, li 会继承 */
+ol,ul {
+	list-style:none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption,th {
+	text-align:left;
+}
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:500;
+}
+
+q:before,q:after {
+	content:'';
+}
+
+/* 统一上标和下标 */
+sup {
+	vertical-align:text-top;
+}
+sub {
+	vertical-align:text-bottom;
+}
+
+/* 让链接在 hover 状态下显示下划线 */
+a:hover {
+	text-decoration:underline;
+}
+
+/* 默认显示下划线，保持页面简洁 */
+ins,a {
+	text-decoration:none;
+}
+
+/* 清理浮动 */
+.clearfix:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.clearfix {
+	zoom:1; /* for IE6 IE7 */
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+.hide {
+	display:none;
+}
+
+/* 设置内联, 减少浮动带来的bug */
+.left,.right {
+	display:inline;
+}
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+
+
+/* text-type */
+html > body {
+	font-size: 14px;
+}
+
+a {
+	color: #E73E33;
+	text-decoration: none;
+}
+
+hr {
+	margin: 20px 0;
+	border: 0;
+	display: block;
+	border-top: 1px dashed #C5C5C5;
+	border-bottom: 1px dashed #F7F7F7;
+}
+
+/* layout */
+
+html {
+	background: url("../images/bg.png") repeat;
+}
+
+header {
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+}
+
+.cell {
+	margin: 0 auto;
+	max-width: 1000px;
+	width: 90%;
+}
+
+footer {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align: center;
+}
+
+header .logo {
+	float: left;
+	margin: 0;
+}
+
+header h1 {
+	font-size: 4em;
+	margin: 0;
+	font-family: 'Cabin Sketch', serif;
+	text-shadow: -1px 0px 1px #AAA;
+	color: #3e3e29;
+}
+
+header ul {
+	float: right;
+	margin-top: 40px;
+}
+
+header li {
+	float: left;
+	font-weight: bold;
+	list-style: none;
+	margin: 0 0 0 2em;
+}
+
+header .divid {
+	border-right: 1px solid #D2D2C7;
+}
+
+.content {
+	margin-left: 80px;
+	margin-right: 80px;
+}
+
+.box {
+	padding-bottom: 2em;
+}
+
+.content h2 {
+	font-size: 1.875em;
+	line-height: 1.6em;
+	margin-bottom: 0.8em;
+	color: #808067;
+	text-align: center;
+	border-bottom: solid 1px #D2D2C7;
+	padding-bottom: 0.46em;
+}
+
+.content h2.scene:after {
+	content: 'scene';
+	position: relative;
+	top: -12px;
+	font-size: 11px;
+	padding: 1px 3px 1px;
+	background-color: rgba(0, 0, 0, .2);
+	border-radius: 3px;
+	font-weight: bold;
+	line-height: 13px;
+	color: white;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.content h2 img {
+	display: block;
+	float: right;
+	margin: 0;
+	position: relative;
+	top: -2px;
+	vertical-align: top;
+}
+
+@media screen and (min-width: 500px) {
+	.content h2 {
+		font-size: 3.125em;
+		line-height: 1.44em;
+		margin-bottom: 0.48em;
+		text-align: left;
+	}
+}
+
+.subnav {
+	list-style: none;
+	position: relative;
+	top: -32px;
+}
+
+.subnav li {
+	background: url("../images/bg.png") repeat;
+	border-right: 1px solid #D2D2C7;
+	float: left;
+	margin: 0;
+}
+
+.subnav a {
+	display: block;
+	padding: 0 1em;
+	color: #849EA2;
+	font-weight: bold;
+}
+
+@media screen and (min-width: 500px) {
+	.subnav li:first-child a {
+		padding-left: 0;
+	}
+}
+
+.content h3 {
+	font-size: 1.625em;
+	line-height: 1.84615em;
+	color: #3E3E29;
+	font-weight: bold;
+}
+
+.content h4 {
+	font-size: 14px;
+	line-height: 21px;
+	font-weight: bold;
+	padding: 10px 0 10px;
+}
+
+.content p, .content li, .content table {
+	font-size: 12px;
+}
+
+.doc-list {
+	margin: 1em 0;
+}
+
+.doc-list li {
+	list-style: square;
+	margin-left: 2em;
+}
+
+/* quote */
+.quote {
+	list-style: none;
+	margin: 0;
+	padding-bottom: 1.5em;
+	position: relative;
+}
+
+.quote blockquote {
+	padding-top: 3em;
+	padding-bottom: 3em;
+	background: #3E3E29;
+	color: #EAEAE1;
+	padding-left: 30px;
+	padding-right: 30px;
+	position: relative;
+	text-align: center;
+}
+
+.quote blockquote:after {
+  background: url("../images/bg-quote.png") no-repeat;
+  bottom: -22px;
+  content: "";
+  display: block;
+  height: 22px;
+  position: absolute;
+  right: 35px;
+  width: 25px;
+}
+
+.quote a {
+	line-height: 3em;
+	font-weight: bold;
+}
+
+.quote-alt blockquote {
+	margin-top: 3em;
+}
+
+.quote-alt blockquote:after {
+	background: url("../images/bg-quote-alt.png") no-repeat;
+	bottom: auto;
+	top: -21px;
+}
+
+.quote-alt a {
+	left: 0;
+	position: absolute;
+	top: 0;
+}
+
+@media screen and (min-width: 500px) {
+	.quote {
+		float: left;
+		margin: 0;
+		width: 32%;
+	}
+
+	.quote-alt {
+		margin: 0 2%;
+	}
+}
+
+/* doc-slide */
+.doc-slide {
+	width: 710px;
+}
+
+.doc-slide ol {
+	position: relative;
+	height: 176px;
+	border: 1px solid #B6D1E6;
+	overflow: hidden;
+}
+
+.doc-slide .ui-switchable-nav {
+	text-align: center;
+	padding-top: 8px;
+}
+
+.doc-slide .ui-switchable-trigger {
+	display: inline-block;
+	width: 0.7em;
+	height: 0.7em;
+	border-radius: 100%;
+	background-color: rgba(0, 0, 0, .2);
+	text-indent: -9999px;
+	margin: 3px;
+	cursor: pointer;
+}
+
+.doc-slide .ui-switchable-active {
+	background-color: rgba(255, 0, 0, .5);
+}
