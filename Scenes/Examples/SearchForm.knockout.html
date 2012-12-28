@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]>
+<html lang="en" class="ie">
+<![endif]-->
+<!--[if gt IE 8]>
+<!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset='utf-8'>
+    <meta content='width=device-width,initial-scale=1.0' name='viewport'>
+    <title>Knockout : Search-Form Example</title>
+    <link href='../assets/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:700&amp;v2" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/financeprod/??/financeprod.financing-1.0-financing-src.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/stylesheets/doc.css" />
+    <link rel="stylesheet" type="text/css" href="static/styles.css" />
+    
+</head>
+<body>
+    <header class='cell clearfix'>
+      <a class="logo" href="/">
+        <h1>UI-Scenes</h1>
+      </a>
+      <ul>
+        <li>
+          <a href="../about.html">About</a>
+        </li>
+        <li>
+          <a href="../scenes.html">Scenes</a>
+        </li>
+        <li class="divid">
+          &nbsp;
+        </li>
+        <li>
+          <a href="#">Cellula</a>
+        </li>
+        <li>
+          <a href="#">Snippet Manager</a>
+        </li>
+        <li>
+          <a href="#">Mi Lab</a>
+        </li>
+      </ul>
+    </header>
+    <div class='cell'>
+      <div class='content'>
+        <h2 class="scene">
+          <img alt="Tutorial" src="../../assets/images/img-badge-development.png">
+          Search Form
+        </h2>
+        <ul class="subnav clearfix">
+          <li><a href="#examples">Live example: knockout</a></li>
+          <li><a href="#comments">Comments</a></li>
+        </ul>
+        <div class="search-box fn-clear" id="searchView">
+            <form id="searchForm">
+                <table>
+                    <colgroup>
+                        <col width="36%" />
+                        <col width="25%" />
+                        <col width="25%" />
+                        <col width="14%" />
+                    </colgroup>
+                    <tr>
+                        <td class="form-item">
+                            <label for="title">Title: </label> 
+                            <input data-bind="value: title" class="mi-input" name="title" />
+                            <div class="mi-form-explain"></div>
+                        </td>
+                        <td class="form-item">
+                            <label for="dateStart">date start: </label> 
+                            <input data-bind="value: dateStart" class="mi-input mi-input-date" data-type="date" name="dateStart" value="2012.05.17" />
+                            <div class="mi-form-explain"></div>
+                        </td>
+                        <td class="form-item">
+                            <label for="dateEnd">date end: </label> 
+                            <input data-bind="value: dateEnd" class="mi-input mi-input-date" data-type="date" name="dateEnd" value="2012.05.19" />
+                            <div class="mi-form-explain"></div>
+                        </td>
+                        <td class="form-item">
+                            <span class="mi-button mi-button-sblue">
+                                <button type='submit' class="mi-button-text">Search</button>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="cache-box">
+            <label for="cacheData">Random cache:</label><br/>
+            <textarea name="cacheData" id="cacheData" rows="7" cols="156" readonly="readonly"></textarea>
+        </div>
+        <div class="data-box fn-hide" id="contentView">
+            <label for="cacheData">Output:</label><br/>
+            <div class="mi-table">
+                <table>
+                    <thead>
+                        <tr><th>Index</th><th>Title</th><th>Date</th></tr>
+                    </thead>
+                    <tbody data-bind="foreach: content">
+                        <tr data-bind="if: $index()%2 === 0">
+                            <td data-bind="text: index"></td>
+                            <td data-bind="text: title"></td>
+                            <td data-bind="text: date"></td>
+                        </tr>
+                        <tr data-bind="if: $index()%2 !== 0" class="mi-table-spliter">
+                            <td data-bind="text: index"></td>
+                            <td data-bind="text: title"></td>
+                            <td data-bind="text: date"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="pagination fn-clear fn-hide" id="paginationView">
+            <div class="mi-paging mi-paging-text ft-12 fn-right">
+                <!-- ko if: checkPrev() -->
+                <a href="#" class="mi-paging-first" data-bind="attr: { rel: first }, click: go.bind($data, first)">首页</a>
+                <a href="#" class="mi-paging-prev" data-bind="attr: { rel: prev }, click: go.bind($data, prev)">上一页</a>
+                <!-- /ko -->
+                <span class="mi-paging-info">
+                    <span data-bind="text: start"></span>
+                     - 
+                    <span data-bind="text: end"></span>条，共
+                    <span data-bind="text: total"></span>条，
+                    每页显示：<span data-bind="text: pageShowCounts"></span>条。
+                </span>
+                <!-- ko if: checkNext() -->
+                <a href="#" class="mi-paging-next" data-bind="attr: { rel: next }, click: go.bind($data, next)">下一页</a>
+                <a href="#" class="mi-paging-last" data-bind="attr: { rel: last }, click: go.bind($data, last)">尾页</a>
+                <!-- /ko -->
+            </div>
+        </div>
+        <div id="cal_cantainer1"></div>
+      </div>
+    </div>
+    <footer class='cell'>
+      <hr/>
+      <p>
+        &copy; 2012-2013 Alipay-SH F2E team. Available for use and modification under the
+        MIT&nbsp;License
+        .
+      </p>
+    </footer>
+<script type="text/javascript" charset="utf-8">
+    araleConfig = {
+        combo_host: 'https://a.alipayobjects.com',
+        combo_path: '/ar/??'
+    }
+</script>
+<script type="text/javascript" src="https://a.alipayobjects.com/ar/arale.core-1.1.js"></script>
+<script type="text/javascript" src="https://a.alipayobjects.com/ar/aralex.validator.ClassicValidator-1.4-index.js"></script>
+<script type="text/javascript" src="https://a.alipayobjects.com/ar/aralex.calendar-1.4-index.js"></script>
+<script type="text/javascript" src="static/knockout-2.2.0.debug.js"></script>
+<script type="text/javascript" src="static/json2.js"></script>
+<script type='text/javascript'>
+/*<![CDATA[*/
+    var utils = window.utils || {};
+    utils.randStr = function(n, u){
+        var tmStr = "abcdefghijklmnopqrstuvwxyz0123456789";
+        var Len = tmStr.length;
+        var Str = "";
+        for (i = 1; i < n + 1; i++) {
+            Str += tmStr.charAt(Math.random() * Len);
+        }
+        return (u ? Str.toUpperCase() : Str);
+    };
+
+    utils.mixin = function(target, src, override) {
+        if (!target) {
+            target = {};
+        }
+        for (var name in src) {
+            if (src.hasOwnProperty(name)) {
+                if ((target[name] == undefined) || override) {
+                    target[name] = src[name];
+                }
+            }
+        }
+        return target;
+    };
+
+    utils.dateFormat = (function(){
+        //private
+        var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g, timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g, timezoneClip = /[^-+\dA-Z]/g, pad = function(val, len){
+            val = String(val);
+            len = len || 2;
+            while (val.length < len) 
+                val = "0" + val;
+            return val;
+        }, masks = {
+            "default": "ddd mmm dd yyyy HH:MM:ss",
+            shortDate: "m/d/yy",
+            mediumDate: "mmm d, yyyy",
+            longDate: "mmmm d, yyyy",
+            fullDate: "dddd, mmmm d, yyyy",
+            shortTime: "h:MM TT",
+            mediumTime: "h:MM:ss TT",
+            longTime: "h:MM:ss TT Z",
+            isoDate: "yyyy-mm-dd",
+            isoTime: "HH:MM:ss",
+            isoDateTime: "yyyy-mm-dd'T'HH:MM:ss",
+            isoUtcDateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"
+        };
+        i18n = {
+            dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        };
+    
+        // Regexes and supporting functions are cached through closure
+        return function(date, mask, utc){
+        
+            // You can't provide utc if you skip other args (use the "UTC:" mask prefix)
+            if (arguments.length == 1 && Object.prototype.toString.call(date) == "[object String]" && !/\d/.test(date)) {
+                mask = date;
+                date = undefined;
+            }
+            
+            // Passing date through Date applies Date.parse, if necessary
+            date = date ? new Date(date) : new Date;
+            if (isNaN(date)) 
+                throw SyntaxError("invalid date");
+            
+            mask = String(masks[mask] || mask || masks["default"]);
+            
+            // Allow setting the utc argument via the mask
+            if (mask.slice(0, 4) == "UTC:") {
+                mask = mask.slice(4);
+                utc = true;
+            }
+            
+            var _ = utc ? "getUTC" : "get", d = date[_ + "Date"](), D = date[_ + "Day"](), m = date[_ + "Month"](), y = date[_ + "FullYear"](), H = date[_ + "Hours"](), M = date[_ + "Minutes"](), s = date[_ + "Seconds"](), L = date[_ + "Milliseconds"](), o = utc ? 0 : date.getTimezoneOffset(), flags = {
+                d: d,
+                dd: pad(d),
+                ddd: i18n.dayNames[D],
+                dddd: i18n.dayNames[D + 7],
+                m: m + 1,
+                mm: pad(m + 1),
+                mmm: i18n.monthNames[m],
+                mmmm: i18n.monthNames[m + 12],
+                yy: String(y).slice(2),
+                yyyy: y,
+                h: H % 12 || 12,
+                hh: pad(H % 12 || 12),
+                H: H,
+                HH: pad(H),
+                M: M,
+                MM: pad(M),
+                s: s,
+                ss: pad(s),
+                l: pad(L, 3),
+                L: pad(L > 99 ? Math.round(L / 10) : L),
+                t: H < 12 ? "a" : "p",
+                tt: H < 12 ? "am" : "pm",
+                T: H < 12 ? "A" : "P",
+                TT: H < 12 ? "AM" : "PM",
+                Z: utc ? "UTC" : (String(date).match(timezone) || [""]).pop().replace(timezoneClip, ""),
+                o: (o > 0 ? "-" : "+") + pad(Math.floor(Math.abs(o) / 60) * 100 + Math.abs(o) % 60, 4),
+                S: ["th", "st", "nd", "rd"][d % 10 > 3 ? 0 : (d % 100 - d % 10 != 10) * d % 10]
+            };
+            
+            return mask.replace(token, function($0){
+                return $0 in flags ? flags[$0] : $0.slice(1, $0.length - 1);
+            });
+        };
+    })();
+
+    // For convenience...
+    Date.prototype.format = function(mask, utc){
+        return utils.dateFormat(this, mask, utc);
+    };
+
+    utils.randDate = function(s, e){
+        var range = 0, int;
+        s = new Date(s.replace('.', '/'));
+        e = new Date(e.replace('.', '/'));
+        range = e - s;
+        int = Math.floor(Math.random() * range);
+        return new Date(s.valueOf() + int);
+    };
+
+    utils.mockdata = function(num, data) {
+        var output = [], i = 0, cell;
+        num = parseInt(num, 10);
+        if (!num) { alert('Type Error: Mockdata Method!');return false; }
+        for (;i<num;i++) {
+            cell = {};
+            cell['index'] = i;
+            cell['title'] = data['title'] + utils.randStr(8);
+            cell['date'] = utils.randDate(data['dateStart'], data['dateEnd']);
+            cell['date'].format("yyyy.mm.dd")
+            output.push(cell);
+        }
+        return output;
+    };
+
+    var Router = {
+        url: "",
+        method: "post",
+        data: {},
+        output: {},
+        mockArr: [],
+        /* 组装数据 */
+        /* todo: refactor */
+        /* Router持有所有Model实例，组装时只mixin触发组装方法的实例，其他实例执行backup或reset. */
+        assemble: function(caller){
+            this.data = {
+                search: {},
+                pagination: {}
+            };
+            if (caller == 'search') {
+                paginationModel.reset();
+            }
+            if (caller == 'page') {
+                searchModel.backup();
+            }
+            utils.mixin(this.data.search, {
+                title: searchModel.title(),
+                dateStart: searchModel.dateStart(),
+                dateEnd: searchModel.dateEnd()
+            });
+            utils.mixin(this.data.pagination, {
+                pageNo: paginationModel.pageNo(),
+                pageShowCounts: paginationModel.pageShowCounts(),   //每页显示10条记录
+                total: paginationModel.total()   
+            });
+            if (caller == 'search') {
+                this.post('mock');
+            } else {
+                this.post();
+            }
+        },
+        /* 拆分数据 */
+        split: function(){
+            searchModel.render(this.output.search);
+            dataModel.render(this.output.content);
+            paginationModel.render(this.output.pagination);
+            $('contentView').removeClass('fn-hide');
+            $('paginationView').removeClass('fn-hide');
+        },
+        mock: function(){
+            this.mockArr = utils.mockdata(Math.random()*50+5, this.data.search);
+            var mock = this.mockArr.map(function(item){return JSON.stringify(item);})
+            $('cacheData').setHtml(mock.join(','));
+        },
+        createMockOutput: function() {
+            var _start = (this.data.pagination.pageNo-1)*this.data.pagination.pageShowCounts;
+            var _end = _start + this.data.pagination.pageShowCounts;
+            this.output = {
+                pagination: {
+                    pageNo: this.data.pagination.pageNo,
+                    pageShowCounts: this.data.pagination.pageShowCounts,
+                    total: this.mockArr.length
+                },
+                search: this.data.search,
+                content: this.mockArr.slice(_start, _end)　　
+            }
+            this.split();
+        },
+        post: function(m){
+            this.output = {};
+            if (m == 'mock') {
+                this.mock();
+            }
+            this.createMockOutput();
+        }
+    };
+
+    var SearchModel = function(){
+        this.title = ko.observable("");
+        this.dateStart = ko.observable($$('input[name="dateStart"]')[0].attr('value'));
+        this.dateEnd = ko.observable($$('input[name="dateEnd"]')[0].attr('value'));
+        this.backupData = {
+            title: this.title(),
+            dateStart: this.dateStart(),
+            dateEnd: this.dateEnd()
+        };
+        this.search = function(tgt){
+            Router.assemble('search');
+        }.bind(this);
+        this.render = function(data){
+            this.backupData.title = this.title(data.title).title();
+            this.backupData.dateStart = this.dateStart(data.dateStart).dateStart();
+            this.backupData.dateEnd = this.dateEnd(data.dateEnd).dateEnd();
+        }.bind(this);
+        this.backup = function(){
+            this.title(this.backupData.title);
+            this.dateStart(this.backupData.dateStart);
+            this.dateEnd(this.backupData.dateEnd);
+        }.bind(this);
+    };
+
+    var searchModel = new SearchModel();
+
+    ko.applyBindings(searchModel, document.getElementById('searchView'));
+
+    var PaginationModel = function(){
+        this.pageNo = ko.observable(1);
+        this.pageShowCounts = ko.observable(10);
+        this.total = ko.observable(10);
+        this.prev = ko.computed(function() {
+            return this.pageNo() > 1 ? this.pageNo() - 1 : 0;
+        }, this);
+        this.next = ko.computed(function() {
+            return this.pageNo() + 1;
+        }, this);
+        this.first = ko.computed(function() {
+            return (this.total() == 0) ? 0 : 1;
+        }, this);
+        this.last = ko.computed(function() {
+            return this.total() > 0 ? Math.ceil(this.total() / this.pageShowCounts()) : 0;
+        }, this);
+        this.start = ko.computed(function() {
+            return (this.pageNo() - 1) * this.pageShowCounts() + 1;
+        }, this);
+        this.end = ko.computed(function() {
+            return this.pageNo() * this.pageShowCounts() >= this.total() ? this.total() : this.pageNo() * this.pageShowCounts();
+        }, this);
+        this.reset = function(){
+            this.pageNo(1);
+            this.pageShowCounts(10);
+            this.total(10);
+        };
+        this.checkPrev = function(){
+            return this.pageNo() > 1;
+        };
+        this.checkNext = function(){
+            return this.pageNo() < this.last();
+        };
+        this.go = function(page){
+            var _p = page();
+            this.pageNo(_p);
+            Router.assemble('page');
+        }.bind(this);
+        this.render = function(data){
+            this.pageNo(data.pageNo);
+            this.pageShowCounts(data.pageShowCounts);
+            this.total(data.total);
+        }.bind(this);
+    };
+
+    var paginationModel = new PaginationModel();
+
+    ko.applyBindings(paginationModel, document.getElementById('paginationView'));
+
+    var DataModel = function(arr){
+        this.content = ko.observableArray(arr);
+        this.render = function(data){
+            this.content(data);
+        }
+    };
+
+    var dataModel = new DataModel([]);
+
+    ko.applyBindings(dataModel, document.getElementById('contentView'));
+
+    E.domReady(function(){
+        var dc = null, minDate = "2012.5.1", maxDate = "2012.5.31";
+        Loader.use('aralex.calendar', function() {
+            dc = new aralex.calendar.Calendar({
+                srcId : 'cal_cantainer1',
+                week_start : '7',
+                selected : [minDate,maxDate],
+                afterDoSelectEvent : function(date){},
+                mindate : minDate,
+                maxdate : maxDate,
+                date_delimiter : ".",
+                dropfilter : true
+            });
+            dc.dateField = null;
+            dc.render();
+
+            dc.after("doSelectEvent",function(date){
+                if(this.dateField){
+                    this.dateField.attr("value", date);
+
+                    var name = this.dateField.attr("name");
+                    searchModel[name] = ko.observable(date)
+                }
+                this.hide();
+                this.dateField = null;
+            });
+
+        });
+
+        A($$(".mi-input")).each(function(input, index){
+            if(input.attr("data-type") == "date"){
+                
+                /** 阻止body的click事件 */
+                E.on(input, "click", function(e){e.stopEvent();});
+
+                E.on(input, "focus", function(e){
+                    var pos = D.getOffsets(e.currentTarget);
+                   /** 修改ie系列下面的垂直距离 */
+                    if(arale.browser.name == "ie"){
+                        pos.top += 2;
+                    }
+                    dc.dateField = input;
+                    if(input.attr("value") != ''){
+                        /** 以下三个属性均需要设置, 方便用户及时的显示当前日期。 */
+                        dc.attr("mindate", minDate);
+                        dc.attr("maxdate", maxDate);
+                        dc.attr("pagedate", input.attr("value"));
+                        dc.select(input.attr("value"));
+                    }
+                    dc.show();
+                    dc.setPosition(pos.left, pos.top + 26);
+                });
+            }
+        });
+
+        E.on(document.body, "click", function(e){
+            if (!$(e.target).hasClass('filterchange')) {
+                dc && dc.hide();
+            }
+        })
+
+        Loader.use('aralex.validator.ClassicValidator', function() {
+            var validator = new aralex.validator.ClassicValidator({
+                itemClass: "form-item",
+                notifyClass: "mi-form-explain",
+                errorClass: "mi-form-item-error",
+                hoverClass: "mi-form-item-hover",
+                focusClass: "mi-form-item-focus",
+                formId: "searchForm",
+                triggerMethod: [/*"keyup", "focus", "blur"*/"blur"],
+                //checkNull:true,
+                rules: {
+                    "input[name='title']" : {
+                        type: ['requiredText'],
+                        desc: "title"
+                    },
+                    "input[name='dateStart']" : {
+                        type: ['requiredText'],
+                        desc: "start date"
+                    },
+                    "input[name='dateEnd']" : {
+                        type: ['requiredText'],
+                        desc: "end date"
+                    }
+                },
+                afterValidate: function() {
+                },
+                afterValidateAll: function(isValidate) {
+                    if (!isValidate) {
+                        return false;
+                    }
+                    searchModel.search();
+                },
+                onSuccess: function() {
+                },
+                onFail: function() {
+                },
+                checkOnSubmit: true,
+                stopSubmit: true,
+                beforeSubmit: function(){
+                    console.log('beforeSubmit');
+                }
+            });
+        });
+    });
+/*]]>*/</script>
+</body>
+</html>

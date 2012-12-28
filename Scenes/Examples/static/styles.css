@@ -1,0 +1,21 @@
+.search-box, .cache-box, .data-box, .pagination { 
+	margin: 2em 0 0; padding: 1em; background-color: #F7F7F7; 
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.search-box input { font-family: Arial; font-size: 12px; }
+.search-box b { font-weight: bold; }
+.search-box p { margin-top: 0.9em; margin-bottom: 0.9em; }
+.search-box h2 { margin-top: 0.4em; }
+.search-box td { vertical-align: top; padding: 0 10px; }
+.search-box td label { margin-top: 3px; display: inline-block; }
+
+.search-box .error { display: block; color: red; font-size: 12px; }
+
+.cache-box { font-size: 12px; }
+.cache-box textarea { font-size: 11px; color: #666; }
+.data-box { font-size: 12px; }

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]>
+<html lang="en" class="ie">
+<![endif]-->
+<!--[if gt IE 8]>
+<!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset='utf-8'>
+    <meta content='width=device-width,initial-scale=1.0' name='viewport'>
+    <title>Scenes | Alipay-SH</title>
+    <link href='../assets/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:700&amp;v2" rel="stylesheet" type="text/css">
+    <link href="../assets/stylesheets/doc.css" media="all" rel="stylesheet" type="text/css"/>
+    <!--[if lte IE 8]>
+    <script src='../assets/javascripts/modernizr.js'></script>
+    <![endif]-->
+</head>
+<body>
+    <header class='cell clearfix'>
+      <a class="logo" href="/">
+        <h1>UI-Scenes</h1>
+      </a>
+      <ul>
+        <li>
+          <a href="../about.html">About</a>
+        </li>
+        <li>
+          <a href="../scenes.html">Scenes</a>
+        </li>
+        <li class="divid">
+          &nbsp;
+        </li>
+        <li>
+          <a href="#">Cellula</a>
+        </li>
+        <li>
+          <a href="#">Snippet Manager</a>
+        </li>
+        <li>
+          <a href="#">Mi Lab</a>
+        </li>
+      </ul>
+    </header>
+    <div class='cell'>
+      <div class='content'>
+        <h2 class="scene">
+          <img alt="Tutorial" src="../assets/images/img-badge-tutorial.png">
+          Search Form
+        </h2>
+        <ul class="subnav clearfix">
+          <li><a href="#examples">Scene examples</a></li>
+          <li><a href="#design">Design</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#comments">Comments</a></li>
+        </ul>
+        <div class='box'>
+          <h3>符合的场景？</h3>
+          <div id="J_sceneExamples" class="ui-switchable doc-slide clearfix">
+            <ol class="ui-switchable-content">
+              <li class="ui-switchable-panel"><img alt="" src="https://i.alipayobjects.com/e/201205/2lOsygtTn7.jpg"></li>
+              <li class="hidden ui-switchable-panel"><img alt="" width="710" height="175" border="0" src="https://i.alipayobjects.com/e/201205/3H1Kii949r.jpg"></li>
+              <li class="hidden ui-switchable-panel"><img alt="" width="710" height="175" border="0" src="https://i.alipayobjects.com/e/201206/2muugwqegL.png"></li>
+              <li class="hidden ui-switchable-panel"><img alt="" src="https://i.alipayobjects.com/e/201205/37t81c9HYx.jpg"></li>
+            </ol>
+          </div>
+          <p>通常情况下，各类交易记录、商户版各类查询都能对应于此场景。</p>
+        </div>
+        <div class='box'>
+          <h3>详细设计</h3>
+          <h4>* 交互重点</h4>
+          <p>本场景交互重点是表单数据查询+数据呈现，并可附加如分页，tab选项卡等外围数据。</p>
+          <p>兼容同步/异步，同步较为简单，可选择性删减代码。</p>
+
+          <ul class="doc-list">
+            <li>表单查询和外围数据都可能触发表单提交，提交前要求组装表单数据与外围数据；</li>
+            <li>表单查询通常搭配有表单校验需求(可选)；</li>
+            <li>表单提交时会重置外围数据/外围数据触发提交时会要求还原原始表单数据；</li>
+            <li>异步环境下需要路由功能，并将服务器返回的数据拆解为表单数据，外围数据与内容数据；</li>
+            <li>不care内容数据的展示形式，但大部分情况下是表格的形式。</li>
+          </ul>
+
+          <h4>* UML时序</h4>
+          <img src="https://github.com/qiaosu/table-search/raw/master/static/tablesearch_uml.png" title="时序图" alt="时序图" width="100%" />
+          <h4>* 结构拆分</h4>
+          <pre>
+            var SearchForm = new Model();
+            var DataTable = new Model();
+            var Pagination = new Model();
+          </pre>
+          <h4>* 最佳实践</h4>
+          <p>扩展场景：多表单。建议加入FormManager管理你的表单实例，咨询 @天孝</p>
+          <h4>* 不适用</h4>
+          <p>只有数据显示，没有数据查询功能的场景不适用。</p>
+        </div>
+        <div class='box'>
+          <h3>Demo</h3>
+          <h4>更多示例代码：</h4>
+          <div class="clearfix">
+            <div class='quote'>
+              <blockquote>
+                Emotions when returning to haml (after erb): 1. This code looks pretty... 2. This is madness! 3. Hey, I remember how it's done. 4. Marry&nbsp;me?
+              </blockquote>
+              <a href="#">@天孝 mi</a>
+            </div>
+            <div class='quote quote-alt'>
+              <a href="#">@爵之 cellula</a>
+              <blockquote>
+                We have used Haml in every web project for the past 2 years and it has saved us an inestimable amount of time. Just&nbsp;brilliant.
+              </blockquote>
+            </div>
+          </div>
+        </div>
+        <div class='box'>
+          <h3>Comments</h3>
+        </div>
+      </div>
+    </div>
+    <footer class='cell'>
+      <hr/>
+      <p>
+        &copy; 2012-2013 Alipay-SH F2E team. Available for use and modification under the
+        MIT&nbsp;License
+        .
+      </p>
+    </footer>
+    <script charset="utf-8" id="seajsnode" src="../assets/sea-modules/seajs/1.3.0/sea.js"></script>
+    <script>
+      seajs.config({
+        alias: {
+          '$': 'http://static.alipayobjects.com/gallery/jquery/1.7.2/jquery.js',
+          '$-debug': 'http://static.alipayobjects.com/gallery/jquery/1.7.2/jquery-debug.js',
+
+          'jquery': 'http://static.alipayobjects.com/gallery/jquery/1.7.2/jquery',
+          'jquery-debug': 'http://static.alipayobjects.com/gallery/jquery/1.7.2/jquery-debug.js'
+        },
+        debug: true
+      })
+
+      seajs.use(['jquery', '../assets/sea-modules/arale/switchable/0.9.11/slide'], function($, Slide){
+        slide1 = new Slide({
+          element: '#J_sceneExamples',
+          panels: '#J_sceneExamples .ui-switchable-content li',
+          effect: 'fade',
+          easing: 'easeOutStrong',
+          interval: 2500
+        });
+      });
+    </script>
+</body>
