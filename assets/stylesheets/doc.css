@@ -310,12 +310,9 @@ header .divid {
 }
 
 .quote blockquote {
-	padding-top: 3em;
-	padding-bottom: 3em;
+	padding: 1em;
 	background: #3E3E29;
 	color: #EAEAE1;
-	padding-left: 30px;
-	padding-right: 30px;
 	position: relative;
 	text-align: center;
 }
@@ -394,4 +391,10 @@ header .divid {
 
 .doc-slide .ui-switchable-active {
 	background-color: rgba(255, 0, 0, .5);
+}
+
+#editor {
+    position: relative;
+    width: 500px;
+    height: 400px;
 }

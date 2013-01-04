@@ -83,12 +83,27 @@
 
           <h4>* UML时序</h4>
           <img src="https://github.com/qiaosu/table-search/raw/master/static/tablesearch_uml.png" title="时序图" alt="时序图" width="100%" />
-          <h4>* 结构拆分</h4>
-          <pre>
+          <h4>* 结构拆分(伪代码)</h4>
+          <div id="js-highlight">
+            var Router = {
+              assemble: function(){},
+              split: function(){},
+              get: function(){},
+              post: function(){}
+            };
             var SearchForm = new Model();
             var DataTable = new Model();
             var Pagination = new Model();
-          </pre>
+            var SearchView = new View({
+              el: 'J_search'
+            });
+            var DataView = new View({
+              el: 'J_data'
+            });
+            var PaginationView = new View({
+              el: 'J_pagination'
+            });
+          </div>
           <h4>* 最佳实践</h4>
           <p>扩展场景：</p>
           <ul class="doc-list">
@@ -99,12 +114,10 @@
           <ul class="doc-list">
             <li>DateFormat；</li>
           </ul>
-          <h4>* 不适用</h4>
-          <p>只有数据显示，没有数据查询功能的场景不适用。</p>
         </div>
         <div class='box'>
           <h3>Demo</h3>
-          <h4>更多示例代码：</h4>
+          <h4>点击查看各个示例代码：</h4>
           <div class="clearfix">
             <div class='quote'>
               <blockquote>
@@ -117,6 +130,12 @@
               <blockquote>
                 We have used Haml in every web project for the past 2 years and it has saved us an inestimable amount of time. Just&nbsp;brilliant.
               </blockquote>
+            </div>
+            <div class='quote'>
+              <blockquote>
+                <img src="http://knockoutjs.com/img/ko-logo.png" width="100%" />
+              </blockquote>
+              <a href="examples/SearchForm.knockout.html">knockout</a>
             </div>
           </div>
         </div>

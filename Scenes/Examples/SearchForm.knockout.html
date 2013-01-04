@@ -132,6 +132,7 @@
                 <!-- /ko -->
             </div>
         </div>
+        <p class="ft-center" style="margin-top:4em;"><a href='../searchform.html'>back to Search Form scene.</a></p>
         <div id="cal_cantainer1"></div>
       </div>
     </div>
@@ -271,13 +272,13 @@
         return utils.dateFormat(this, mask, utc);
     };
 
-    utils.randDate = function(s, e){
+    utils.randDate = function(start, end){
         var range = 0, int;
-        s = new Date(s.replace('.', '/'));
-        e = new Date(e.replace('.', '/'));
-        range = e - s;
+        start = new Date(start.replace('.', '/'));
+        end = new Date(end.replace('.', '/'));
+        range = end - start;
         int = Math.floor(Math.random() * range);
-        return new Date(s.valueOf() + int);
+        return new Date(start.valueOf() + int);
     };
 
     utils.mockdata = function(num, data) {
@@ -363,6 +364,7 @@
             if (m == 'mock') {
                 this.mock();
             }
+            //else real post.
             this.createMockOutput();
         }
     };
